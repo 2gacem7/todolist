@@ -29,12 +29,21 @@ app.post('/todo/add', async (req, res) => {
 })
 
 app.get('/todo/completed', async (req, res) => {  
-    let todos = await todoModel.find()   
+    let todos = await todoModel.find({completed: true})   
         try{
             res.json(todos);
-            res.send('Salut') 
+        //res.send('Salut') 
         }catch(err){
             res.send(err)
             console.error(err)
         }      
-    })
+})
+app.put('/todo/complete/:id',(req, res) => {  
+    todoModel.findByIdAndUpdate(req.params.id, 
+        {title: req.body.title}, (err, todo) => {    
+            if(!err){      
+                res.send("Good Work");    
+            }  
+        }
+    )
+})
