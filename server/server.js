@@ -38,12 +38,13 @@ app.get('/todo/completed', async (req, res) => {
             console.error(err)
         }      
 })
-app.put('/todo/complete/:id',(req, res) => {  
-    todoModel.findByIdAndUpdate(req.params.id, 
-        {title: req.body.title}, (err, todo) => {    
-            if(!err){      
-                res.send("Good Work");    
-            }  
-        }
+app.put('/todo/complete/:id', async (req, res) => {  
+   await todoModel.findByIdAndUpdate(req.params.id, 
+        {title: req.body.title}
     )
+    try {
+        res.send("update");
+    }catch(err){
+        res.send(err)
+    }
 })
