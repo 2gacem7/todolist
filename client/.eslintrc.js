@@ -35,8 +35,16 @@ module.exports = {
     // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-file
     // required to lint *.vue files
     'vue',
-
   ],
+  'comma-dangle': ['warn', {
+    'arrays': 'always',
+    'objects': 'always',
+    'imports': 'always',
+    'exports': 'always',
+    'functions': 'always'
+}],
+
+
 
   globals: {
     ga: true, // Google Analytics
