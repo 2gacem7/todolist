@@ -51,7 +51,7 @@ export default {
   },
    async created() {
     try {
-      const response = await axios.get('http://localhost:8082/todo/completed')
+      const response = await axios.get('http://localhost:8080/todo/completed')
       this.todos = response.data
       console.log(response.data)
     } catch (e) {
