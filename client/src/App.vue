@@ -1,22 +1,11 @@
 <template>
-  <div>
-      <CreateTodo />
+  <div id="q-app">
+    <router-view />
   </div>
 </template>
 
-    
-
-
-
 <script>
-import CreateTodo from './components/CreateTodo.vue'
-
 export default {
-  components: {
-    CreateTodo
-  },
+  name: 'App'
 }
 </script>
-
-<style>
-</style>
