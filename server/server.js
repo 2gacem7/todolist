@@ -49,12 +49,12 @@ app.put('/todo/complete/:id', async (req, res) => {
     }
 })
 
-app.delete('/todo/:id', async (req, res) => {  
+ app.delete('/todo/:id', async (req, res) => {  
     let query = { _id: req.params.id }  
-   await todoModel.deleteOne(query)    
+   await todoModel.findByIdAndDelete(query)    
         try{      
             res.send("Todo deleted")   
         }catch(err){      
             res.send(err)
         }       
-})
+}) 
