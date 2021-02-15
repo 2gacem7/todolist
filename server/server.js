@@ -7,7 +7,7 @@ const todoModel = require('./todo_schema')
 const app = express();
 app.use(cors())
 db()
-app.listen(8082, () => {
+app.listen(8080, () => {
  console.log("Server started on port 8080")
 });
 

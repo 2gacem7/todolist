@@ -2,9 +2,22 @@
   <div class="q-pa-md">
         <div class="row justify-center">
             <div class="col-md-4 col-xs-6 text-center">
-                <q-input v-model="title" type="text" hint="Name" />
-                <q-btn @click.prevent="onSubmit()" class="q-mt-4" color="red" label="Add" />
+              <q-input v-model="title" type="text" hint="Name" />
+              <q-btn @click.prevent="onSubmit()" class="q-mt-4" color="red" label="Add" />
             </div>
+            <q-card
+              class="my-card text-white"
+              style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
+            >
+                <q-card-section>
+                  <div class="text-h6">Our Changing Planet</div>
+                  <div class="text-subtitle2">by John Doe</div>
+                </q-card-section>
+                <q-card-section class="q-pt-none">
+                  {{ lorem }}
+                </q-card-section>
+            </q-card>
+
         </div>
     </div>
 </template>
