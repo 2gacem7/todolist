@@ -29,8 +29,8 @@ app.post('/todo/add', async (req, res) => {
 })
 
 app.get('/todo/completed', async (req, res) => {  
-    let todos = await todoModel.find()   
         try{
+         let todos = await todoModel.find()
             res.json(todos);
         //res.send('Salut') 
         }catch(err){
@@ -39,10 +39,9 @@ app.get('/todo/completed', async (req, res) => {
         }      
 })
 app.put('/todo/complete/:id', async (req, res) => {  
-   await todoModel.findByIdAndUpdate(req.params.id, 
-        {title: req.body.title}
-    )
     try {
+     await todoModel.findByIdAndUpdate(req.params.id, 
+        {title: req.body.title})
         res.send("update");
     }catch(err){
         res.send(err)
@@ -50,9 +49,10 @@ app.put('/todo/complete/:id', async (req, res) => {
 })
 
  app.delete('/todo/:id', async (req, res) => {  
-    let query = { _id: req.params.id }  
-   await todoModel.findByIdAndDelete(query)    
-        try{      
+       
+        try{
+         let query = { _id: req.params.id }  
+         await todoModel.findByIdAndDelete(query) 
             res.send("Todo deleted")   
         }catch(err){      
             res.send(err)
