@@ -7,7 +7,7 @@ const todoModel = require('./todo_schema')
 const app = express();
 app.use(cors())
 db()
-app.listen(8082, () => {
+app.listen(8080, () => {
  console.log("Server started on port 8080")
 });
 
@@ -29,8 +29,8 @@ app.post('/todo/add', async (req, res) => {
 })
 
 app.get('/todo/completed', async (req, res) => {  
-    let todos = await todoModel.find()   
         try{
+         let todos = await todoModel.find()
             res.json(todos);
         //res.send('Salut') 
         }catch(err){
@@ -39,22 +39,24 @@ app.get('/todo/completed', async (req, res) => {
         }      
 })
 app.put('/todo/complete/:id', async (req, res) => {  
-   await todoModel.findByIdAndUpdate(req.params.id, 
-        {title: req.body.title}
-    )
     try {
+     await todoModel.findByIdAndUpdate(req.params.id, 
+        {title: req.body.title})
         res.send("update");
     }catch(err){
         res.send(err)
     }
 })
 
-app.delete('/todo/:id', async (req, res) => {  
-    let query = { _id: req.params.id }  
-   await todoModel.deleteOne(query)    
-        try{      
+ app.delete('/todo/:id', async (req, res) => {  
+       
+        try{
+         let query = { _id: req.params.id }  
+         await todoModel.findByIdAndDelete(query) 
             res.send("Todo deleted")   
         }catch(err){      
             res.send(err)
         }       
-})
+}) 
+
+
