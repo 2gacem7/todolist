@@ -1,25 +1,48 @@
 <template>
-  <div class="q-pa-md">
-        <div class="row justify-center">
-            <div class="col-md-4 col-xs-6 text-center">
-                <q-input v-model="title" type="text" hint="Name" />
-                <q-btn @click.prevent="onSubmit()" class="q-mt-4" color="red" label="Add" />
-            </div>
+   <div>
+      <div class="q-pa-md row items-start q-gutter-md">
+      <div class="row">
+      <div class="col-md-4 col-xs-12">
+        <q-card dark bordered class="bg-green my-card col-md-4">
+          <q-card-section>
+            <div class="text-h6">To do</div>
+            </q-card-section>
+          <q-separator dark inset />
+        </q-card>
+        <div class="col-md-4">
+        <q-card dark bordered class="bg-grey my-card col-md-4">
+          <q-card-section>
+            <div class="text-h6">Done git</div>
+            </q-card-section>
+          <q-separator dark inset />
+        </q-card>
         </div>
+          </div>
+          </div>
+      </div>
     </div>
 </template>
 
 <script>
+
 import axios from "axios";
+ 
 
 export default {
-  
+ 
   name: 'App',
   data(){
     return {
       todos: []
     };
   },
+
+
+
+
+
+
+
   /* async created() {
     try {
       const response = await axios.get('http://localhost:8080/todo/completed')
@@ -31,8 +54,4 @@ export default {
   } */
 }
 </script>
-
-<style>
-
-</style>
 
